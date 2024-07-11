@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import PreLoader from './components/PreLoader'
 
 function App() {
 
   return (
-    <div className="App">
-    </div>
+    <>
+      <PreLoader />
+      <div className="App"></div>
+    </>
   )
 }
 
