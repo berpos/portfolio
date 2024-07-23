@@ -1,3 +1,8 @@
+@font-face {
+  font-family: myFont;
+  src: url(../fonts/ProtestDemo.ttf);
+}
+
 .preloader {
   height: 100vh;
   width: 100%;
@@ -16,11 +21,12 @@
 
 .text {
   color: #222;
-  font-size: 6rem;
+  font-size: 5rem;
   text-transform: uppercase;
   position: relative;
-  letter-spacing: 0.05em;
-  line-height: 1.2em;
+  letter-spacing: 0.14em;
+  font-family: myFont;
+  font-weight: 700;
 }
 
 .text::before {
