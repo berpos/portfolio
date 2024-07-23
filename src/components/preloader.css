@@ -37,7 +37,7 @@
   width: 100%;
   color: #fff;
   overflow: hidden;
-  animation: animate 3s linear forwards;
+  animation: animate 2.6s linear forwards;
 }
 
 @keyframes animate {

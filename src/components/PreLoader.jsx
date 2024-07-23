@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import './preloader.css'
+import { preLoaderAnim } from '../animations/index';
 
 export default function PreLoader() {
 
@@ -10,6 +11,10 @@ export default function PreLoader() {
   //     console.log(`letter ${i} is ${logos[i].getTotalLength()}`);
   //   }
   // }, [])
+
+  useEffect(() => {
+    preLoaderAnim();
+  }, []);
 
   return (
     <div className='preloader'>
