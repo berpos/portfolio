@@ -17,8 +17,14 @@ export default function PreLoader() {
   }, []);
 
   return (
-    <div className='preloader'>
-      <h1 className='text' data-text="Bernardo">Bernardo</h1>
-    </div>
+    <>
+      <div className='preloader'>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <h1 className='text' data-text="Bernardo">Bernardo</h1>
+      </div>
+    </>
   )
 }
