@@ -41,7 +41,7 @@ export const preLoaderAnim = () => {
       css: { overflowY: "hidden", height: "unset" },
     })
     .to("body", {
-      duration: 0.1,
+      duration: 0.2,
       css: { overflowY: "scroll" },
       ease: "power3.inOut",
     })
@@ -54,16 +54,20 @@ export const preLoaderAnim = () => {
     .to(
       ".preloader",
       {
-        duration: 1.5,
+        duration: 2,
         height: "0vh",
         ease: "Power3.easeOut",
-        onComplete: mobileLanding(),
+        onComplete: () => {
+          mobileLanding(); // Execute your mobileLanding function if applicable
+          document.querySelector('.preloader').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Allow scrolling after preloader is gone
+    document.querySelector('.text').classList.add('hidden'); // Hide text after animation
+        },
       },
       "-=2"
     )
     .from(".landing__main .text", {
-      duration: 2,
-      // scale: 0,
+      duration: 0,
       y: 10,
       opacity: 0,
       stagger: {
@@ -75,18 +79,21 @@ export const preLoaderAnim = () => {
       duration: 0.5,
       opacity: 0,
       delay: window.innerWidth < 763 ? -3 : -0.6,
-      // y: 80,
       stagger: {
         amount: 0.5,
       },
       ease: "expo.easeOut",
-      onComplete: animateMainShape(),
+      onComplete: () => {
+        animateMainShape(); // Execute the animation for the main shape
+      },
     })
     .from(".main-circle", {
       duration: 1,
       opacity: 0,
       ease: "power3.easeInOut",
-      onComplete: animateShapes(),
+      onComplete: () => {
+        animateShapes(); // Execute the shapes animation
+      },
     })
     .from(".shapes .shape", {
       duration: 1,
@@ -98,6 +105,9 @@ export const preLoaderAnim = () => {
     .to(".preloader", {
       duration: 0,
       css: { display: "none" },
+      onComplete: () => {
+        tl.kill(); // Kill the timeline after all animations are complete
+      },
     });
 };
 
