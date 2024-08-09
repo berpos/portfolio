@@ -1,6 +1,18 @@
-.teste {
-  width: 40%;
-  border-radius: 6rem;
-  margin-top: 6rem;
+.aboutImage {
   margin-left: 2rem;
+  margin-top: 2rem;
+  overflow: hidden;
+  border-radius: 4rem;
+  width: 40%;
+}
+
+.aboutImage img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.aboutImage img:hover {
+  transform: scale(1.1);
 }

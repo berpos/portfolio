@@ -4,8 +4,8 @@ import LePhoto from '../images/LePhoto.jpg';
 
 export default function Home() {
   return (
-    <div>
-      <img src={LePhoto} alt="" className={styles.teste}/>
+    <div className={styles.aboutImage}>
+      <img src={LePhoto} alt=""/>
     </div>
   )
 }
