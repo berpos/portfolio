@@ -49,6 +49,14 @@ body {
     padding: 0;
   }
 
+  li{
+    transition: all 0.3s ease;
+  }
+
+  li:hover{
+    scale: 1.2;
+  }
+
   /* media queries */
 
   @media screen and (max-width: 780px){

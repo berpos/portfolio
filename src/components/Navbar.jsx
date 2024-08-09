@@ -23,13 +23,13 @@ export default function Navbar() {
               <a href='#home' className={`${styles.navLink}`}>Home</a>
             </li>
             <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>About</a>
+              <a href='#about' className={`${styles.navLink}`}>About</a>
             </li>
             <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>Work</a>
+              <a href='#work' className={`${styles.navLink}`}>Work</a>
             </li>
             <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>Contact</a>
+              <a href='#contact' className={`${styles.navLink}`}>Contact</a>
             </li>
           </ul>
           <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
