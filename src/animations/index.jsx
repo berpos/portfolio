@@ -11,15 +11,6 @@ export const preLoaderAnim = () => {
     css: { overflowY: "hidden" },
     ease: "power3.inOut",
   })
-    .to(".landing", {
-      duration: 0.05,
-      css: { overflowY: "hidden", height: "90vh" },
-    })
-    .to(".texts-container", {
-      duration: 0,
-      opacity: 1,
-      ease: "Power3.easeOut",
-    })
     .from(".texts-container span", {
       duration: 1.5,
       delay: 1,
@@ -34,11 +25,6 @@ export const preLoaderAnim = () => {
       skewY: -20,
       stagger: 0.2,
       ease: "Power3.easeOut",
-    })
-
-    .to(".landing", {
-      duration: 0.05,
-      css: { overflowY: "hidden", height: "unset" },
     })
     .to("body", {
       duration: 0.2,
