@@ -58,13 +58,24 @@ export const preLoaderAnim = () => {
         height: "0vh",
         ease: "Power3.easeOut",
         onComplete: () => {
-          mobileLanding(); // Execute your mobileLanding function if applicable
-          document.querySelector('.preloader').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Allow scrolling after preloader is gone
-    document.querySelector('.text').classList.add('hidden'); // Hide text after animation
+          document.querySelector('.preloader').style.display = 'none'; // Ensure preloader is hidden
+          document.body.style.overflow = 'auto'; // Allow scrolling
+          gsap.killTweensOf(".text"); // Stop any ongoing animations for .text
+          gsap.killTweensOf(".shapes .shape"); // Stop any ongoing animations for shapes
+          gsap.to(".preloader span", {
+            duration: 0.5,
+            opacity: 0,
+            ease: "power3.easeOut",
+            onComplete: () => {
+              // Ensure stars are fully hidden
+              document.querySelectorAll('.preloader span').forEach(el => {
+                el.style.display = 'none'; // Hide stars
+              });
+            }
+          });
         },
       },
-      "-=2"
+      "-=2" // Adjust this to sync with preloader animation
     )
     .from(".landing__main .text", {
       duration: 0,
@@ -83,17 +94,11 @@ export const preLoaderAnim = () => {
         amount: 0.5,
       },
       ease: "expo.easeOut",
-      onComplete: () => {
-        animateMainShape(); // Execute the animation for the main shape
-      },
     })
     .from(".main-circle", {
       duration: 1,
       opacity: 0,
       ease: "power3.easeInOut",
-      onComplete: () => {
-        animateShapes(); // Execute the shapes animation
-      },
     })
     .from(".shapes .shape", {
       duration: 1,
@@ -106,10 +111,41 @@ export const preLoaderAnim = () => {
       duration: 0,
       css: { display: "none" },
       onComplete: () => {
-        tl.kill(); // Kill the timeline after all animations are complete
+        // Cleanup actions
+        document.querySelector('.preloader').style.display = 'none'; // Ensure preloader is hidden
+        document.body.style.overflow = 'auto'; // Allow scrolling
+        gsap.killTweensOf(".text"); // Stop any ongoing animations for .text
+        gsap.killTweensOf(".shapes .shape"); // Stop any ongoing animations for shapes
+        tl.kill(); // Kill the timeline
       },
     });
+
+  // Ensure that the stars animation is hidden after the preloader
+  gsap.to("span", {
+    duration: 0.4,
+    opacity: 0,
+    ease: "power3.easeOut",
+    delay: 2.5, // Matches the preloader duration
+    onComplete: () => {
+      document.querySelectorAll('span').forEach(el => {
+        el.style.display = 'none'; // Hide stars
+      });
+    }
+  });
+
+  // Ensure the text element is properly hidden after the animation
+  gsap.to(".text", {
+    duration: 0.3,
+    opacity: 0,
+    y: 20, // Adjust as needed
+    ease: "power3.easeOut",
+    delay: 3.5, // Delay to match preloader completion
+    onComplete: () => {
+      document.querySelector('.text').style.display = 'none'; // Ensure text is hidden
+    }
+  });
 };
+
 
 export const mobileLanding = () => {
   window.innerWidth < 763 &&

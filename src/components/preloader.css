@@ -63,7 +63,8 @@ span{
   background:white;
   border-radius:50%;
   box-shadow:0 0 0 1px white;
-  animation: stars 3s linear forwards;
+  animation: stars 5s linear forwards;
+  transition: opacity 0.5s ease-out, display 0s ease-out 0.5s; /* Ensure proper transition */
 }
 span::before{
   content:'';
@@ -93,4 +94,8 @@ span:nth-child(2){
 span:nth-child(3){
   top:100px;
   right:80px;
+}
+
+.hide-stars span {
+  display: none;
 }
