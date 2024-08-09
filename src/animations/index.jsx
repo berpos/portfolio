@@ -122,7 +122,7 @@ export const preLoaderAnim = () => {
 
   // Ensure that the stars animation is hidden after the preloader
   gsap.to("span", {
-    duration: 0.4,
+    duration: 0.5,
     opacity: 0,
     ease: "power3.easeOut",
     delay: 2.5, // Matches the preloader duration
@@ -135,7 +135,7 @@ export const preLoaderAnim = () => {
 
   // Ensure the text element is properly hidden after the animation
   gsap.to(".text", {
-    duration: 0.3,
+    duration: 0.4,
     opacity: 0,
     y: 20, // Adjust as needed
     ease: "power3.easeOut",
